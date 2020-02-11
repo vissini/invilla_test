@@ -1,7 +1,9 @@
 # XML Process
 
 Sistema Web para importar XML People e ShipOrdes e gravar seus dados no banco.
-API para retornar esses dados do banco. Foi criado até o momento apenas controle para os dados do People e da Order
+
+API para retornar esses dados do banco. 
+Foi criado até o momento apenas controle para os dados do People e da Order
 
 ## Instalação
 
@@ -98,6 +100,3 @@ People:
 - Implementar Authenticação da API por JWT ou/e OAuth2
 - Implementar Gerênciamento completo das informações salvas no banco, via API
 - Desenvolver área administrativa para Gerenciar dados salvos no banco via WEB.
-```
-/vendor/bin/phpunit ou composer test
-```
