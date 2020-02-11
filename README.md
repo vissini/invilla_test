@@ -1,78 +1,103 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# XML Process
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Sistema Web para importar XML People e ShipOrdes e gravar seus dados no banco.
+API para retornar esses dados do banco. Foi criado até o momento apenas controle para os dados do People e da Order
 
-## About Laravel
+## Instalação
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Clonar o repositório:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```sh
+git clone https://github.com/vissini/invilla_test.git
+cd invilla_Test
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Instalar dependências do composer:
 
-## Learning Laravel
+```sh
+composer install
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Instalar dependências do npm:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```sh
+npm install ou yarn install
+```
 
-## Laravel Sponsors
+Compilar assets:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```sh
+npm run dev ou yarn dev
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+Configuração do env:
 
-## Contributing
+```sh
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Gerar chave da aplicação:
 
-## Code of Conduct
+```sh
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Crie um banco de dados MySql e alterar a configuração de acordo no .env. Você também pode usar outro banco de dados (Sqlite, Postgres), basta atualizar sua configuração de acordo.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Rodar migrations:
 
-## License
+```sh
+php artisan migrate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Iniciar aplicação:
+
+```sh
+php artisan serve
+```
+
+Gerar documentação automática da API:
+```sh
+php artisan apidoc:generate
+```
+
+## Rotas API
+
+People:
+- GET /api/people
+- GET /api/people/{id}
+- GET /api/people/phones/{id}
+- GET /api/people/orders/{id}
+- POST /api/people
+- PUT/PATCH /api/people/{id}
+- DELETE /api/people/{id}
+
+Orders:
+- GET /api/orders
+- GET /api/orders/{id}
+- GET /api/orders/orderItems/{id}
+- GET /api/orders/ships/{id}
+- POST /api/orders
+- PUT/PATCH /api/orders/{id}
+- DELETE /api/orders/{id}
+
+## Rotas WEB Bonus
+
+People:
+- GET /people
+- GET /people/{id}
+- POST /people
+- PUT/PATCH /people/{id}
+- DELETE /people/{id}
+
+
+## Implementações Futuras
+
+- Implementar Tests Unitários com PHPUnit
+- Implementar Authenticação da API por JWT ou/e OAuth2
+- Implementar Gerênciamento completo das informações salvas no banco, via API
+- Desenvolver área administrativa para Gerenciar dados salvos no banco via WEB.
+```
+/vendor/bin/phpunit ou composer test
+```

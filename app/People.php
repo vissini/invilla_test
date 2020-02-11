@@ -12,4 +12,8 @@ class People extends Model
     {
         return $this->hasMany('App\Phone');
     }
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 }

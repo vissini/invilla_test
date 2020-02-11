@@ -15,4 +15,5 @@ Route::get('/','FilesController@index');
 Route::get('upload','FilesController@fileCreate')->name('upload');;
 Route::post('upload/store','FilesController@fileStore');
 Route::post('delete','FilesController@fileDestroy');
-Route::post('post/{id}','FilesController@fileGet')->name('fileGet');
+Route::post('xml/{id}','FilesController@fileGet')->name('fileGet');
+Route::resource('people', 'PeopleController');
